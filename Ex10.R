@@ -1,7 +1,5 @@
 # Exercise 10
 
-# Usage:
-
 # 1. found excel data of college GPA and SAT scores 
 # and make scatter plot
 
