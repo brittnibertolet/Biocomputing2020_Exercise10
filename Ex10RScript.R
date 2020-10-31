@@ -24,4 +24,18 @@ scatter <- function(i){
 
 # run the function
 scatter("~/Desktop/Bioinformatics/Biocomputing2020_Exercise10/dogweights.csv")
-  
+
+
+# pt2: write a script that generates two figures to summarize data in data.txt
+# generate a barplot of the means of the four populations
+# generate a scatterplot of all the observations
+
+# load data.txt
+data <- read.csv("~/Desktop/Bioinformatics/Biocomputing2020_Exercise10/data.txt",
+                 header=TRUE, stringsAsFactors = FALSE)
+
+# generate barplot
+ggplot(data, aes(x=region, y=observations))+
+  stat_summary(fun.y=mean, geom="bar", width=0.5)+
+  theme_classic()
+
