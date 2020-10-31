@@ -34,8 +34,18 @@ scatter("~/Desktop/Bioinformatics/Biocomputing2020_Exercise10/dogweights.csv")
 data <- read.csv("~/Desktop/Bioinformatics/Biocomputing2020_Exercise10/data.txt",
                  header=TRUE, stringsAsFactors = FALSE)
 
-# generate barplot
+# generate barplot of means
 ggplot(data, aes(x=region, y=observations))+
   stat_summary(fun.y=mean, geom="bar", width=0.5)+
   theme_classic()
+
+# generate scatterplot of all obs
+ggplot(data, aes(x=region, y=observations))+
+  geom_jitter(size=0.1)+
+  theme_classic()
+
+# do the bar and scatter plots tell you different stories? why?
+## the scatter plot shows more detail in the data, that the bar graph misses.
+## for example, in the south region, the scatter plot shows that the observations 
+## cluster around 25 and 5. the bar graph doesn't show this.
 
