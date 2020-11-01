@@ -26,18 +26,42 @@ library(ggplot2)
 library(cowplot)
 #load text file/read in data
 data = read.table("data.txt", header=TRUE, sep=",", stringsAsFactors=FALSE)
-#Graph 1: barplot of the means of the four populations(7) by region (x)
-ggplot(data, aes(x = region, y = observations)) + #specify dataset and variables
+#Graph 1: barplot of the means of the four populations(y) by region (x)
+#Set both graphs as variables 
+graph1 <- ggplot(data, aes(x = region, y = observations)) + #specify dataset and variables
   stat_summary(fun = mean, geom = "bar") + #calculates summary stats and plots
   xlab("Region") + #sets x axis label
-  ylab("Mean of Populations") + #sets y axis label
+  ylab("Observations") + #sets y axis label
+  ggtitle("Mean Observations of Regions") +
   theme_classic() #Removes gray background and gridlines
 #Graph 2: scatter plot of all obervations
 
+graph2 <- ggplot(data = data,aes(x = region, y = observations, color = region)) + #specify dataset and variables and color coordinate by region
+  geom_jitter()+ #prevents overplotting
+  xlab("Region") + #add x axis label
+  ylab("Observations") + #add y axis label
+  ggtitle("All Observations of Regions")+
+  theme_classic() #removes gray background and gridlines
+
+#put the subplots together in a variable called "fig1"
+fig1 <- plot_grid(graph1,graph2, 
+  labels = c("a", "b"),
+  rel_widths = c(1,1),
+  ncol = 2,
+  nrow = 1)
+
+#save your figure to an external file
+ggsave(filename = "Fig1.pdf",#what you want to save file as
+       plot = fig1,
+       width = 8,
+       height = 5,
+       dpi = 300)
 
 
-mean(data$observations[data$region=="east"])
-  
+#The barplot shoes that the mean obervations of each region are approximately the same
+#however, the scatterplot actually shows a greater variation and deviation between the regions
+#Meaning, although their means are similar, their ranges are actually quite different.
+#Averages aren't always accurate representations of the entire population.
 
 
 
