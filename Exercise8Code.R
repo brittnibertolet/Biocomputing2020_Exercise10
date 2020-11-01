@@ -32,7 +32,7 @@ graph1 <- ggplot(data, aes(x = region, y = observations)) + #specify dataset and
   stat_summary(fun = mean, geom = "bar") + #calculates summary stats and plots
   xlab("Region") + #sets x axis label
   ylab("Observations") + #sets y axis label
-  ggtitle("Mean Observations of Regions") +
+  ggtitle("Mean Observations of Regions") + #add title
   theme_classic() #Removes gray background and gridlines
 #Graph 2: scatter plot of all obervations
 
@@ -40,7 +40,7 @@ graph2 <- ggplot(data = data,aes(x = region, y = observations, color = region)) 
   geom_jitter()+ #prevents overplotting
   xlab("Region") + #add x axis label
   ylab("Observations") + #add y axis label
-  ggtitle("All Observations of Regions")+
+  ggtitle("All Observations of Regions")+ #add title
   theme_classic() #removes gray background and gridlines
 
 #put the subplots together in a variable called "fig1"
