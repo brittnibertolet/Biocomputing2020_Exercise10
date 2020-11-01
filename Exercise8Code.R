@@ -60,8 +60,8 @@ ggsave(filename = "Fig1.pdf",#what you want to save file as
 
 #The barplot shoes that the mean obervations of each region are approximately the same
 #however, the scatterplot actually shows a greater variation and deviation between the regions
-#Meaning, although their means are similar, their ranges are actually quite different.
-#Averages aren't always accurate representations of the entire population.
+#Meaning, their ranges/spreads are actually quite different but still surround the same average.
+#Averages aren't always accurate representations of the entire population because outliers can skew the data.
 
 
 
