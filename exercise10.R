@@ -8,18 +8,19 @@
 ##This could include the anomalies where someone took the tax portion upon themselves
 
 ##Step 1: Load in the data
-myData <- read.csv("", header=TRUE, stringsAsFactors = FALSE)
+myData <- read.csv("stdAdd.csv", header=TRUE, stringsAsFactors = FALSE)
 
 ##Step 2: Call in the ggplot2
 library(ggplot2)
 
 ##Step 3: Use ggplot to make the scatterplot and trend line
-ggplot(data=myData, aes(x=, y=))+
+ggplot(data=myData, aes(x=invConc, y=invVol))+
   geom_point()+
   #I've set the trendline to a different color so that it's distinguised from the points
   stat_smooth(method="lm", color="cadetblue4")+
-  xlab("")+
-  ylab("")+
+  titlelab("L-B Graph of LDH Kinetics")+
+  xlab("Inverse of Sample Concentration (1/[S])")+
+  ylab("Inverse of Volume (1/V)")+
   theme_classic()
 
 ###Part 2 - Create a bar plot that shows the means of the four populations in 
