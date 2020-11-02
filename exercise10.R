@@ -18,9 +18,9 @@ ggplot(data=myData, aes(x=invConc, y=invVol))+
   geom_point()+
   #I've set the trendline to a different color so that it's distinguised from the points
   stat_smooth(method="lm", color="cadetblue4")+
-  titlelab("L-B Graph of LDH Kinetics")+
-  xlab("Inverse of Sample Concentration (1/[S])")+
-  ylab("Inverse of Volume (1/V)")+
+  labs(title="L-B Graph of LDH Kinetics",
+       x="Inverse of Sample Concentration (1/[S])",
+       y="Inverse of Volume (1/V)")+
   theme_classic()
 
 ###Part 2 - Create a bar plot that shows the means of the four populations in 
