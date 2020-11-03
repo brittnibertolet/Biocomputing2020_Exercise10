@@ -25,3 +25,25 @@ ggplot(kgc, aes(x=age, y=weight)) + geom_point() +
 
 # Question 2
 
+# read the data, which is a comma separated text file
+data <- read.delim("data.txt", sep = ",")
+
+# barplot of the means of the four populations
+
+  # calculate the means for east, north, south, west
+  # create a new dataframe
+
+# not sure why there is an 'NA' in region column, BUT it still gives us the info we need
+# Group.1 column has the region, observations column has the mean
+datameans <- aggregate(data, list(data$region), mean)
+
+
+
+
+
+# scatterplot of all the observation (geom_jitter())
+
+
+# Do the bar and scatter plots tell you different stories? Why?
+
+
