@@ -5,7 +5,7 @@
 
 #read in file
 satgpa=read.csv("satandgpa.csv",header=TRUE)
-head(satgpa)
+head(satgpa) # see column names etc.
 
 # get ggplot library
 library(ggplot2)
