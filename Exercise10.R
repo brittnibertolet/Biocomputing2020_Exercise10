@@ -22,7 +22,28 @@ print(plot)
 
 
   
-  
+#question 2 
+#using data.txt and creating two plots
+data<-read.csv("data.txt", header = TRUE)
+#first plot; barplot of means of four populations 
+north<-data[data$region=="north",]
+dim(north)
+nmean<-mean(north$observations)
+south<-data[data$region=="south",]
+smean<-mean(south$observations)
+east<-data[data$region=="east",]
+emean<-mean(east$observations)
+west<-data[data$region=="west",]
+wmean<-mean(west$observations)
+means<-data.frame(means=c(nmean, smean, emean, wmean), region=c("north", "south", "east", "west"))
+means
+library(ggplot2)
+
+ 
+
+       
+#second plot; scatter plot of all observations 
+#using geom_jitter to make points easier to see or alpha 0.1 in geom_scatterplot
   
   
   
