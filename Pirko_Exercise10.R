@@ -19,6 +19,9 @@ ggplot(data=studyscore, aes(x=Hours.Studied, y=Exam.Score, color=Exam.Score)) +
   xlab("Hours Studied") + 
   ylab("Exam Score") 
 
+#Get rid of error bar with stat_smooth(method="lm", se=FALSE)
+
+
 #Q2: 2 figures that summarize data.txt- barplot of means of 4 pops, scatterplot of all
 #use geom_jitter() to make it easier or alpha in geom_scatterplot() to 0.1
 #Load the data.txt file
@@ -42,5 +45,5 @@ ggplot(data,aes(x = region, y = observations, color = as.factor(region))) +
   theme_classic()
 
 #Do bar & scatterplot tell different stories? Why?
-##Yes, they do since the scatterplot shows you all of the points and lets you better visualize the spread of the data, while the bar graphs only show you the means and they appear to be rather close together. You would not see the spread in south with the huge gap, for instance, in the bar graph.
+##Yes, they do since the scatterplot shows you all of the points and lets you better visualize the spread of the data, while the bar graphs only show you the means and they appear to be rather close together, almost sharing the same means. You would not see the spread in south with the huge gap, for instance, in the bar graph.
   
