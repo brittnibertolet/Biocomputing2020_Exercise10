@@ -24,10 +24,11 @@ str(dat)
 library(ggplot2)
 
 # part 1
-# bar plot of the means of the four populations
+# bar plot of the means of the four regions
 ggplot(data=dat, aes(x=region, y=observations)) +
-  geom_bar() +
-  stat_summary(fun.y = mean)
+  stat_summary(fun.y = mean,
+  geom="bar) +
+  theme_bw()
 
 # part 2 
 # scatter plot of all the observations
