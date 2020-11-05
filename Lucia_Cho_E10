@@ -1,0 +1,34 @@
+### Exercise 10
+## Question 1
+# load file of data on two variables
+setwd("/User/Lucia/Desktop/)
+soccer_stats <- read.csv(file='Desktop/EPL_heights_weights.csv', header=TRUE, stringsAsFactors=FALSE)
+str(soccer_stats)
+
+# load package to use
+library(ggplot2)
+
+# produce a scatter plot of the two variables
+# include trendline
+ggplot(soccer_stats, aes(x=Weight, y=Height)) + geom_point() +
+  geom_smooth(method=lm)
+
+
+## Question 2
+# load data.txt file
+setwd("/User/Lucia/Desktop/data.txt)
+dat <- read.csv(file='Desktop/data.txt', header=TRUE, stringsAsFactors=FALSE)
+str(dat)
+
+# load package to use
+library(ggplot2)
+
+# part 1
+# bar plot of the means of the four populations
+ggplot(data=dat, aes(x=region, y=observations)) +
+  geom_bar() +
+  stat_summary(fun.y = mean)
+
+# part 2 
+# scatter plot of all the observations
+ggplot(dat, aes(x=region, y=observations)) + geom_jitter() 
