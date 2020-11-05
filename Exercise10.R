@@ -34,7 +34,16 @@ ggplot(data, aes(x = region, y = observations)) +
        
 #second plot; scatter plot of all observations 
 #using geom_jitter to make points easier to see or alpha 0.1 in geom_scatterplot
-  
-  
+ggplot(data,aes(x=region, y=observations, color=region)) +
+  geom_jitter() +
+  xlab("region") +
+  ylab("observations") +
+  theme_classic()
+
+#these two plots tell a different story 
+#the first plot shows the averages, making the regions look pretty similar in terms of means
+#the second plot shows that there are differences in observations between the regions
+#the observations seem to be pretty different between different regions
+#this was not as obvious when looking at the means 
   
   
