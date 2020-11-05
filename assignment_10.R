@@ -3,8 +3,20 @@
 # internet. Enter those data into a text file or Excel and then save a text 
 # file, and write a script that loads this text file and produces a scatter 
 # plot of those two variables that includes a trend line.
+# load ggplot
+library(ggplot2)
+# sample data kinetic_data
 
+kinetics<-read.delim("kineticdata", header=TRUE, stringsAsFactors = FALSE)
+dim(kinetics)
 
+# generation of the scatter plot with ggplot
+ggplot(data=kinetics,aes(x=concentration,y=averageVo)) +
+geom_point() +
+theme_classic() +
+xlab("Concentration (uM)") +
+ylab("average initial velocity") +
+stat_smooth(method="lm") 
 
 
 # 2. Given the data in “data.txt”. Write a script that generates two 
