@@ -28,3 +28,35 @@ stat_smooth(method="lm")
 ##Alternatively, you could also try setting the alpha argument in 
 ##geom_scatterplot() to 0.1. Do the bar and scatter plots tell you different 
 ##stories? Why?
+
+# read in the data file data.txt
+data<-read.csv("data.txt", header = TRUE, stringsAsFactors = FALSE) 
+#data organized x=region y=observation use stat_summary to get the means
+# then use ggplot and geom_bar to get a barplot. This solves part 1 of number 2
+
+ggplot(data, aes(x=region, y=observations)) +
+  stat_summary(fun = mean, geom = "bar") +
+  xlab("Cardinal Direction") +
+  ylab("Average observation") +
+  theme_classic()
+ 
+# part 2- need to make a scatter plot of all observations
+
+ggplot(data,aes(x = region, y = observations)) + 
+  geom_point() +
+  geom_jitter() +
+  xlab("Cardinal direction") +
+  ylab("Observations") + 
+  theme_classic()
+
+# the bar plot tells me the average observation in each of the cardinal 
+# directions but the scatter plot shows the distribution of the observations
+# in the cardinal directions
+
+  
+
+
+
+
+
+
