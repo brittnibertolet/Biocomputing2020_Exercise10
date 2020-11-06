@@ -7,12 +7,19 @@
 ## Steps
 # load data with read.csv()
 # load ggplot 
-# scatter plot
-# add data for second variable
-# color code variables
+# scatter plot, add data for both variables
 # add axis labels
 # add trend line
 
+hungrykitchen<-read.csv("HungryKitchen.csv", header = TRUE)
+library(ggplot2)
+ggplot(data = hungrykitchen, aes(x=Hungry, y=Kitchen)) +
+  geom_point() +
+  xlab("Hungry Time") +
+  ylab("Kitchen Time") +
+  stat_smooth(method="lm") +
+  theme_classic() 
+  
 
 ### Problem 2
 # Write script for two figures to summarize "data.txt"
