@@ -8,20 +8,19 @@ Tuition<-read.csv("NDtotaltuition.csv", stringsAsFactors = F, header=TRUE)
 #I expect that Notre Dame's tuition has increased over the past 10 years
 
 library(ggplot2)
-#creating a text file to put plot in
-plot=ggplot(data=Tuition, aes(x=Year, y=Tuition))+
+plot=ggplot(data=Tuition, aes(x=Year, y=Tuition))+  #plotting tuition over years
   geom_point() +
   stat_smooth(method="lm") +
   theme_classic()
 print(plot)
-  # save the plot to a pdf in your present working directory
-  ## make sure the file name is flexible through each iteration
-  ggsave(filename = paste0("NDtuition_vs_time.txt"), plot = plot)
+  # saving the plot to a pdf in present working directory
+  ggsave(filename = paste0("NDtuition_vs_time.pdf"), plot = plot)
   }
 
 #question 2 
 #using data.txt and creating two plots
 data<-read.csv("data.txt", header = TRUE)
+#looking at the data
 head(data)
 #first plot; barplot of means of four populations 
 library(ggplot2)
@@ -44,6 +43,7 @@ ggplot(data,aes(x=region, y=observations, color=region)) +
 #the first plot shows the averages, making the regions look pretty similar in terms of means
 #the second plot shows that there are differences in observations between the regions
 #the observations seem to be pretty different between different regions
-#this was not as obvious when looking at the means 
+#the second plot shows a stark difference between the north and south regions
+#this was not as obvious when looking at the means themselves in the first plot
   
   
