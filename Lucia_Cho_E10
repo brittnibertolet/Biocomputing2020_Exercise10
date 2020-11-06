@@ -27,7 +27,7 @@ library(ggplot2)
 # bar plot of the means of the four regions
 ggplot(dat, aes(x=region, y=observations)) +
   stat_summary(fun.y = mean,
-  geom="bar) +
+  geom="bar") +
   theme_bw()
 
 # part 2 
