@@ -4,14 +4,17 @@ setwd("~/Desktop/data/Biocomputing2020_Exercise10")
 #question 1
 #data is Notre Dame tuition over the past 10 years
 #tution is given starting in the fall semester  
-Tuition<-read.csv("NDtotaltuition.csv", stringsAsFactors = F, header=TRUE)
+Tuition<-read.csv("NDtotaltuition.csv", sep="", stringsAsFactors = F, header=TRUE)
 #I expect that Notre Dame's tuition has increased over the past 10 years
 
 library(ggplot2)
 plot=ggplot(data=Tuition, aes(x=Year, y=Tuition))+  #plotting tuition over years
   geom_point() +
-  stat_smooth(method="lm") +
-  theme_classic()
+  theme_classic()+
+  stat_smooth(method="lm")+
+  #setting axes
+  scale_x_discrete(name="Years", limits=c(2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020))+
+  scale_y_continuous()
 print(plot)
   # saving the plot to a pdf in present working directory
   ggsave(filename = paste0("NDtuition_vs_time.pdf"), plot = plot)
