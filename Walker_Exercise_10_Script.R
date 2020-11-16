@@ -38,7 +38,7 @@ ggplot(data=data, aes(x=region, y=observations, color=as.factor(region)))+
   ylab("Observations")+
   ggtitle("Observations by Region")
 
-#The different graphs show that while the mean is similar, the distribution varies greatly by region. The scatter plot captures this info because it shows each individual region.
+#The different graphs show that while the mean is similar, the distribution varies greatly by region. The scatter plot captures this info because it shows each individual observation in each region.
 
     
   
