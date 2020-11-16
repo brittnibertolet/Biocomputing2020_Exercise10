@@ -23,12 +23,22 @@ data_means <- aggregate(x= data$observations,
 colnames(data_means) = c("Region", "Means") #change column names of data_means
 head(data_means) #check that data_means is correct
 
-
-  ggplot(data=data_means, aes(x=Region, y=Means, fill=Region))+
+#bar plot of region means
+ggplot(data=data_means, aes(x=Region, y=Means, fill=Region))+
     geom_bar(stat="identity")+ #create bar graph by region and means
     xlab("Region")+
     ylab("Mean")+
-    ggtitle("Means by Region")
+    ggtitle("Means by Region")+
+    scale_y_continuous(breaks=0:20*1) #set y-axis scale 
+
+#scatter plot of all observations
+ggplot(data=data, aes(x=region, y=observations, color=as.factor(region)))+
+  geom_jitter()+
+  xlab("Region")+
+  ylab("Observations")+
+  ggtitle("Observations by Region")
+
+#The different graphs show that while the mean is similar, the distribution varies greatly by region. The scatter plot captures this info because it shows each individual region.
 
     
   
