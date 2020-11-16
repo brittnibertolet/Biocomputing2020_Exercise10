@@ -14,5 +14,21 @@ ggplot(data=temp,
   ylab("Average Annual Snowfall (in)")+ #add y label
   ggtitle("Average Temperature and Snowfall for Largest 51 US Cities") #add title
 
-  
+#Start of problem 2
+data <- read.table(file="data.txt", sep=",", header=TRUE, stringsAsFactors = FALSE) #load data 
+head(data) #check that data loaded correctly
+data_means <- aggregate(x= data$observations,
+          by =list(data$region), 
+          FUN= mean) #get means for each region 
+colnames(data_means) = c("Region", "Means") #change column names of data_means
+head(data_means) #check that data_means is correct
+
+
+  ggplot(data=data_means, aes(x=Region, y=Means, fill=Region))+
+    geom_bar(stat="identity")+ #create bar graph by region and means
+    xlab("Region")+
+    ylab("Mean")+
+    ggtitle("Means by Region")
+
+    
   
